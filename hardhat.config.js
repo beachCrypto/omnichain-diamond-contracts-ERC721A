@@ -59,11 +59,11 @@ module.exports = {
     polygonscan: {
         apiKey: process.env.POLYGONSCAN_API_KEY,
     },
-    contractSizer: {
-        alphaSort: true,
-        disambiguatePaths: false,
-        runOnCompile: true,
-        strict: true,
-        // only: [':ERC20$'],
-    },
+    // contractSizer: {
+    //     alphaSort: true,
+    //     disambiguatePaths: false,
+    //     runOnCompile: true,
+    //     strict: true,
+    //     // only: [':ERC20$'],
+    // },
 };
