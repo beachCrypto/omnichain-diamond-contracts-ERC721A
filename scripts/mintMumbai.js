@@ -5,14 +5,16 @@ const {ethers} = require('hardhat');
 require('dotenv').config();
 const mintFacet = require('../artifacts/contracts/facets/MintFacet.sol/MintFacet.json');
 
-async function mintOnGoerli() {
+const diamondAddressA = process.env.DIAMOND_CONTRACT_ADDRESS_MUMBAI;
+
+async function mintOnMumbai() {
     const accounts = await ethers.getSigners();
     const contractOwner = accounts[0];
 
     const MintFacet = await ethers.getContractFactory('MintFacet');
 
-    const mintFacet = await MintFacet.attach('0xC6F7A5D7810D872FFe90407f34F50DB495Eca39B');
+    const mintFacet = await MintFacet.attach(diamondAddressA);
 
-    await mintFacet.mint();
+    await mintFacet.mint(500);
 }
-mintOnGoerli();
+mintOnMumbai();

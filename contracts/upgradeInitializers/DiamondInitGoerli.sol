@@ -48,7 +48,7 @@ contract DiamondInitGoerli {
         // Initialize ONFT state variables
 
         ONFTStorage.ONFTStorageLayout storage onfts = ONFTStorage.oNFTStorageLayout();
-        onfts.minGasToTransferAndStore = 100000;
+        onfts.minGasToTransferAndStore = 400000;
 
         // Initialize / set LayerZero endpoint
         // Goerli

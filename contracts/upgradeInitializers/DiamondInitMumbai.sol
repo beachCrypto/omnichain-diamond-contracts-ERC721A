@@ -55,8 +55,7 @@ contract DiamondInitMumbai {
 
         ONFTStorage.ONFTStorageLayout storage onfts = ONFTStorage.oNFTStorageLayout();
         onfts.nextMintId = 0;
-        onfts.maxMintId = 333;
-        onfts.minGasToTransferAndStore = 100000;
+        onfts.minGasToTransferAndStore = 400000;
 
         // Initialize / set LayerZero endpoint
         // NFTs minted on Mumbai

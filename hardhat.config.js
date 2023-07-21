@@ -3,6 +3,7 @@ require('@nomiclabs/hardhat-waffle');
 require('dotenv').config();
 require('@nomicfoundation/hardhat-verify');
 require('hardhat-contract-sizer');
+require('hardhat-gas-reporter');
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -59,11 +60,15 @@ module.exports = {
     polygonscan: {
         apiKey: process.env.POLYGONSCAN_API_KEY,
     },
-    // contractSizer: {
-    //     alphaSort: true,
-    //     disambiguatePaths: false,
-    //     runOnCompile: true,
-    //     strict: true,
-    //     // only: [':ERC20$'],
-    // },
+    contractSizer: {
+        alphaSort: true,
+        disambiguatePaths: false,
+        runOnCompile: true,
+        strict: true,
+        // only: [':ERC20$'],
+    },
+    gasReporter: {
+        currency: 'CHF',
+        gasPrice: 21,
+    },
 };
