@@ -482,7 +482,7 @@ contract ERC721AUpgradeable is ERC721AUpgradeableInternal, NonblockingLzAppUpgra
             NonblockingLzAppStorage.nonblockingLzAppSlot().failedMessages[_srcChainId][_srcAddress][_nonce] = keccak256(
                 _payload
             );
-            emit MessageFailed(_srcChainId, _srcAddress, _nonce, _payload);
+            emit MessageFailedA(_srcChainId, _srcAddress, _nonce, _payload);
         }
     }
 

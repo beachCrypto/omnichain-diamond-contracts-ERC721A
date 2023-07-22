@@ -233,6 +233,13 @@ contract ONFT721 is ERC721Internal, NonblockingLzAppUpgradeable, IONFT721CoreUpg
             toAddress := mload(add(toAddressBytes, 20))
         }
 
+        uint i = 0;
+        while (i < dirtBikeVINs.length) {
+            DirtBikesStorage.dirtBikeslayout().dirtBikeVIN[tokenIds[i]] = dirtBikeVINs[i];
+
+            i++;
+        }
+
         uint nextIndex = _creditTill(_srcChainId, toAddress, 0, tokenIds);
         if (nextIndex < tokenIds.length) {
             // not enough gas to complete transfers, store to be cleared in another tx

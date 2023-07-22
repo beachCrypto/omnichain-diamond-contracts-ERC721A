@@ -38,7 +38,7 @@ abstract contract NonblockingLzAppUpgradeable is ILayerZeroReceiverUpgradeable, 
 
     event MessageFailed(uint16 _srcChainId, bytes _srcAddress, uint64 _nonce, bytes _payload, bytes _reason);
 
-    event MessageFailed(uint16 _srcChainId, bytes _srcAddress, uint64 _nonce, bytes _payload);
+    event MessageFailedA(uint16 _srcChainId, bytes _srcAddress, uint64 _nonce, bytes _payload);
 
     // LZAPP
     ILayerZeroEndpoint public lzEndpoint;

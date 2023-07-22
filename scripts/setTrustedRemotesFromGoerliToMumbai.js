@@ -3,22 +3,28 @@
 
 const {ethers} = require('hardhat');
 require('dotenv').config();
-const mintFacet = require('../artifacts/contracts/facets/MintFacet.sol/MintFacet.json');
+
+const diamondAddressA = process.env.DIAMOND_CONTRACT_ADDRESS_MUMBAI;
+const diamondAddressB = process.env.DIAMOND_CONTRACT_ADDRESS_GOERLI;
+
+// Mumbai
+const chainId_A = process.env.CHAIN_A;
+// Goerli
+const chainId_B = process.env.CHAIN_B;
 
 async function setTrustedRemotesFromGoerliToMumbai() {
     const accounts = await ethers.getSigners();
     const contractOwner = accounts[0];
 
-    const ERC721 = await ethers.getContractFactory('ERC721');
+    const ONFT = await ethers.getContractFactory('ONFT721', diamondAddressB);
 
-    const eRC721A = await ERC721.attach('0xC6F7A5D7810D872FFe90407f34F50DB495Eca39B');
+    // Attach to diamond contract
+    const oNFT721 = await ONFT.attach(diamondAddressB);
 
-    await eRC721A.setTrustedRemote(
-        10109,
-        ethers.utils.solidityPack(
-            ['address', 'address'],
-            ['0x0f8cd04c35b9ab08ea42e72e1f8636e4ac7b60c6', '0xc6f7a5d7810d872ffe90407f34f50db495eca39b']
-        )
+    // set each contracts source address so it can send to each other
+    await oNFT721.setTrustedRemote(
+        chainId_A,
+        ethers.utils.solidityPack(['address', 'address'], [diamondAddressA, diamondAddressB])
     );
 }
 

@@ -30,7 +30,7 @@ async function deployGoerli() {
     // deploy facets
     console.log('');
     console.log('Deploying facets');
-    const FacetNames = ['DiamondLoupeFacet', 'ERC721', 'ONFT', 'OwnershipFacet', 'RenderFacet'];
+    const FacetNames = ['DiamondLoupeFacet', 'ERC721', 'ONFT721', 'OwnershipFacet', 'RenderFacet'];
     const cut = [];
     for (const FacetName of FacetNames) {
         const Facet = await ethers.getContractFactory(FacetName);

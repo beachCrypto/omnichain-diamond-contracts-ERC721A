@@ -1,13 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-/******************************************************************************\
-* Author: Nick Mudge <nick@perfectabstractions.com> (https://twitter.com/mudgen)
-* EIP-2535 Diamonds: https://eips.ethereum.org/EIPS/eip-2535
-*
-* Implementation of a diamond.
-/******************************************************************************/
-
 // Diamond interfaces
 import {LibDiamond} from '../libraries/LibDiamond.sol';
 import {IDiamondLoupe} from '../interfaces/IDiamondLoupe.sol';
@@ -55,7 +48,7 @@ contract DiamondInitGoerli {
         // Initialize ONFT state variables
 
         ONFTStorage.ONFTStorageLayout storage onfts = ONFTStorage.oNFTStorageLayout();
-        onfts.minGasToTransferAndStore = 100000;
+        onfts.minGasToTransferAndStore = 400000;
 
         // Initialize / set LayerZero endpoint
         // Goerli
